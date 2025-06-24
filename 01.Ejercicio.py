@@ -5,16 +5,35 @@ Crear un programa python con un menu, con tres opciones.
 3 cerrar. El programa debe pedir el nombre del alumno.
 
 """
-def mostrar_menu():
-    print("\n--- Menú ---")
-    print("1. Agregar alumno")
-    print("2. Mostrar todos los alumnos")
-    print("3. Cerrar")
+# Lista para guardar alumnos
+lista_alumnos = []
 
-def agregar_alumno(lista_alumnos):
-    nombre = input("Ingrese el nombre del alumno: ")
-    lista_alumnos.append({"nombre": nombre})
-    print(f"Alumno '{nombre}' agregado correctamente.")
+# Bandera del menú
+activo = True
 
+while activo:
+    print("\n--- Menú de Alumnos ---")
+    print("[1] Agregar alumno")
+    print("[2] Mostrar todos los alumnos")
+    print("[3] Cerrar")
+
+    opcion = input("Ingrese opción: ")
+
+    if opcion == "1":
+        nombre = input("Ingrese el nombre del alumno: ")
+        lista_alumnos.append(nombre)
+        print("Alumno agregado correctamente.")
+
+    elif opcion == "2":
+        print("\nLista de alumnos:")
+        for alumno in lista_alumnos:
+            print(f"- {alumno}")
+
+    elif opcion == "3":
+        print("Programa finalizado.")
+        activo = False
+
+    else:
+        print("Opción no válida.")
 
 
